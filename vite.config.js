@@ -27,15 +27,15 @@ export default defineConfig(({ command }) => {
       injectHTML(),
       !isBuild && FullReload(['src/partials/**/*.html']),
       // Плагин для копирования статических файлов
-      // isBuild &&
-      //   viteStaticCopy({
-      //     targets: [
-      //       {
-      //         src: 'img/icon/*',
-      //         dest: 'img/icon',
-      //       },
-      //     ],
-      //   }),
+      isBuild &&
+        viteStaticCopy({
+          targets: [
+            {
+              src: 'img/icon/*',
+              dest: 'img/icon',
+            },
+          ],
+        }),
       isBuild &&
         viteCompression({
           verbose: true,
